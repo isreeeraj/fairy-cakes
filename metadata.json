@@ -1,0 +1,8 @@
+{
+  "name": "Fairy Cakes-demo",
+  "description": "Handmade happiness in every bite. Parippally\u0027s favorite custom cake studio and hangout café since 2016.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
