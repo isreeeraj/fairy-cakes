@@ -1,10 +1,15 @@
 import React from 'react';
 import { ASSETS } from '../data/fairyCakesData';
 import { ResilientImage } from './ResilientImage';
+import { SplitWords } from './SplitWords';
 
 export function FeaturedMenuSection() {
   return (
-    <section className="section top-padd" aria-labelledby="featured-heading">
+    <section
+      className="section top-padd"
+      data-mello-section="featured"
+      aria-labelledby="featured-heading"
+    >
       <div className="container">
         <div className="products-content">
           <div className="section-heading">
@@ -14,7 +19,7 @@ export function FeaturedMenuSection() {
                 <div className="handwritten-l">Two delicious worlds</div>
               </div>
               <h2 id="featured-heading" className="h2 heading-h2">
-                Cake studio meets hangout café
+                <SplitWords text="Cake studio meets hangout café" />
               </h2>
             </div>
             <div className="text-wrapper">

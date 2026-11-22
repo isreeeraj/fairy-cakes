@@ -14,6 +14,7 @@ import {
   type CakeLabConfig,
 } from '../data/fairyCakesData';
 import { ActionButton } from './ActionButton';
+import { SplitWords } from './SplitWords';
 
 interface CakeLabSectionProps {
   selectedFlavorId?: string | null;
@@ -52,6 +53,7 @@ export function CakeLabSection({ selectedFlavorId }: CakeLabSectionProps) {
     <section
       id="custom-cake"
       className="section bottom-padd"
+      data-mello-section="cake-lab"
       aria-labelledby="cake-lab-heading"
     >
       <div className="container">
@@ -63,7 +65,7 @@ export function CakeLabSection({ selectedFlavorId }: CakeLabSectionProps) {
                 <div className="handwritten-l">Interactive Cake Lab</div>
               </div>
               <h2 id="cake-lab-heading" className="h2 heading-h2">
-                Build your dream cake
+                <SplitWords text="Build your dream cake" />
               </h2>
             </div>
             <div className="text-wrapper">

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import {
   ASSETS,
   CRAVING_OPTIONS,
@@ -7,15 +7,45 @@ import {
   type CravingOption,
 } from '../data/fairyCakesData';
 import { ResilientImage } from './ResilientImage';
+import { SplitWords } from './SplitWords';
 
 export function MoodMatcherSection() {
   const [selectedCravingId, setSelectedCravingId] =
     useState<CravingOption['id']>('celebration');
+  const cardRef = useRef<HTMLElement>(null);
+  const hasInteractedRef = useRef(false);
 
   const activeMood =
     CRAVING_OPTIONS.find((opt) => opt.id === selectedCravingId) ??
     CRAVING_OPTIONS[0];
   const arrowAngle = getWheelArrowAngle(activeMood.id);
+
+  useEffect(() => {
+    if (!hasInteractedRef.current || !cardRef.current) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const wrapper = cardRef.current.parentElement;
+    if (wrapper) {
+      gsap.set(wrapper, { opacity: 1, y: 0, scale: 1, rotation: 0, overwrite: 'auto' });
+    }
+    gsap.fromTo(
+      cardRef.current,
+      { opacity: 0, y: 32, scale: 0.8, rotation: -10 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: 'elastic.out(0.8, 0.5)',
+        overwrite: 'auto',
+      }
+    );
+  }, [selectedCravingId]);
+
+  const handleSelectCraving = (id: CravingOption['id']) => {
+    hasInteractedRef.current = true;
+    setSelectedCravingId(id);
+  };
 
   const topRow = CRAVING_OPTIONS.slice(0, 2);
   const bottomRow = CRAVING_OPTIONS.slice(2, 4);
@@ -28,7 +58,7 @@ export function MoodMatcherSection() {
         type="button"
         aria-pressed={isActive}
         aria-label={`${opt.moodLabel}: ${opt.prompt}`}
-        onClick={() => setSelectedCravingId(opt.id)}
+        onClick={() => handleSelectCraving(opt.id)}
         className={`wheel-block ${opt.quadrant} ${isActive ? 'is-active' : ''}`}
       >
         <div className="wheel-text">
@@ -42,6 +72,7 @@ export function MoodMatcherSection() {
   return (
     <section
       className="section both-padd black"
+      data-mello-section="mood"
       aria-labelledby="mood-matcher-heading"
     >
       <div className="container">
@@ -53,7 +84,7 @@ export function MoodMatcherSection() {
                 <div className="handwritten-l">Craving matcher</div>
               </div>
               <h2 id="mood-matcher-heading" className="h2 heading-h2">
-                What are you in the mood for?
+                <SplitWords text="What are you in the mood for?" />
               </h2>
             </div>
             <img
@@ -115,43 +146,34 @@ export function MoodMatcherSection() {
 
             <div className="product-block-wrapper" aria-live="polite">
               <div className="prod-block-wrapper">
-                <AnimatePresence mode="wait">
-                  <motion.article
-                    key={activeMood.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.22, ease: 'easeOut' }}
-                    className="product-block"
-                  >
-                    <div className="image-wrapper">
-                      <ResilientImage
-                        src={activeMood.product.image}
-                        alt={activeMood.product.alt}
-                        className="image background-image"
-                      />
-                    </div>
-                    <div className="info-wrapper">
-                      <div className="block-items-wrapper">
-                        <div className="name-and-details">
-                          <div className="details">
-                            <div className="body-m">{activeMood.product.tags[0]}</div>
-                            <div className="divider" aria-hidden="true" />
-                            <div className="body-m">{activeMood.product.tags[1]}</div>
-                          </div>
-                          <h3 className="h3 h3-small">{activeMood.product.name}</h3>
+                <article ref={cardRef} className="product-block">
+                  <div className="image-wrapper">
+                    <ResilientImage
+                      src={activeMood.product.image}
+                      alt={activeMood.product.alt}
+                      className="image background-image"
+                    />
+                  </div>
+                  <div className="info-wrapper">
+                    <div className="block-items-wrapper">
+                      <div className="name-and-details">
+                        <div className="details">
+                          <div className="body-m">{activeMood.product.tags[0]}</div>
+                          <div className="divider" aria-hidden="true" />
+                          <div className="body-m">{activeMood.product.tags[1]}</div>
                         </div>
-                        <p className="body-m">{activeMood.product.description}</p>
+                        <h3 className="h3 h3-small">{activeMood.product.name}</h3>
                       </div>
-                      <div className="details">
-                        <div className="emphasis-l">{activeMood.product.price}</div>
-                        <div className="volume">
-                          <div className="body-s">{activeMood.product.volume}</div>
-                        </div>
+                      <p className="body-m">{activeMood.product.description}</p>
+                    </div>
+                    <div className="details">
+                      <div className="emphasis-l">{activeMood.product.price}</div>
+                      <div className="volume">
+                        <div className="body-s">{activeMood.product.volume}</div>
                       </div>
                     </div>
-                  </motion.article>
-                </AnimatePresence>
+                  </div>
+                </article>
               </div>
             </div>
           </div>

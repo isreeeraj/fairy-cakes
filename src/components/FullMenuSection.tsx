@@ -1,5 +1,6 @@
 import React from 'react';
 import { ASSETS, MENU_ROWS } from '../data/fairyCakesData';
+import { SplitWords } from './SplitWords';
 
 interface FullMenuSectionProps {
   onSelectFlavor?: (flavorId: string) => void;
@@ -7,7 +8,12 @@ interface FullMenuSectionProps {
 
 export function FullMenuSection({ onSelectFlavor }: FullMenuSectionProps) {
   return (
-    <section id="menu" className="section both-padd" aria-labelledby="menu-heading">
+    <section
+      id="menu"
+      className="section both-padd"
+      data-mello-section="full-menu"
+      aria-labelledby="menu-heading"
+    >
       <div className="container">
         <div className="menu-section-content">
           <div className="section-heading default">
@@ -18,7 +24,7 @@ export function FullMenuSection({ onSelectFlavor }: FullMenuSectionProps) {
               className="illustration section-heading-illu"
             />
             <h2 id="menu-heading" className="h2 heading-h2 align-center">
-              Our sweet &amp; savory menu
+              <SplitWords text="Our sweet & savory menu" />
             </h2>
           </div>
 
@@ -29,7 +35,9 @@ export function FullMenuSection({ onSelectFlavor }: FullMenuSectionProps) {
                   {row.map((category) => (
                     <div key={category.title} className="menu-category">
                       <div className="category-header">
-                        <h3 className="h3 h3-small">{category.title}</h3>
+                        <h3 className="h3 h3-small">
+                          <SplitWords text={category.title} />
+                        </h3>
                         <div className="text-and-volume-wrapper">
                           <p className="body-m">{category.subtitle}</p>
                           <div className="volumes-wrapper">

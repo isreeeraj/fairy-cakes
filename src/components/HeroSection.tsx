@@ -24,12 +24,13 @@ export function HeroSection({ onScrollToSection }: HeroSectionProps) {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="h1 hero-h1">
-              Handmade happiness
+              <span className="split-word" style={{ display: 'inline-block' }}>Handmade</span>{' '}
+              <span className="split-word" style={{ display: 'inline-block' }}>happiness</span>
               <br />
-              in{' '}
+              <span className="split-word" style={{ display: 'inline-block' }}>in</span>{' '}
               <span className="hero-bite-trigger" tabIndex={0}>
-                every{' '}
-                <span className="hero-bite-word">
+                <span className="split-word" style={{ display: 'inline-block' }}>every</span>{' '}
+                <span className="hero-bite-word split-word" style={{ display: 'inline-block' }}>
                   bite
                   <svg
                     className="hero-bite-cutout"

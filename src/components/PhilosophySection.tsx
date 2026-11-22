@@ -1,6 +1,7 @@
 import React from 'react';
 import { ASSETS, RECEIPT_ITEMS, SITE_INFO } from '../data/fairyCakesData';
 import { ActionButton } from './ActionButton';
+import { SplitWords } from './SplitWords';
 
 interface PhilosophySectionProps {
   onScrollToSection: (hash: string) => void;
@@ -22,6 +23,7 @@ export function PhilosophySection({ onScrollToSection }: PhilosophySectionProps)
   return (
     <section
       className="section both-padd black"
+      data-mello-section="philosophy"
       aria-labelledby="philosophy-heading"
     >
       <div className="container">
@@ -34,8 +36,12 @@ export function PhilosophySection({ onScrollToSection }: PhilosophySectionProps)
                   <div className="handwritten-l">Why Parippally loves us</div>
                 </div>
                 <h2 id="philosophy-heading" className="h2 heading-h2">
-                  <span>Celebrations that feel </span>
-                  <span className="h2 accent">handmade.</span>
+                  <span>
+                    <SplitWords text="Celebrations that feel" />{' '}
+                  </span>
+                  <span className="h2 accent">
+                    <SplitWords text="handmade." />
+                  </span>
                 </h2>
               </div>
               <p className="body-l block-description">

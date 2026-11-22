@@ -1,12 +1,14 @@
 import React from 'react';
 import { ASSETS, SITE_INFO } from '../data/fairyCakesData';
 import { ResilientImage } from './ResilientImage';
+import { SplitWords } from './SplitWords';
 
 export function VisitSection() {
   return (
     <section
       id="visit"
       className="section both-padd large black"
+      data-mello-section="visit"
       aria-labelledby="visit-heading"
     >
       <div className="border top-border white" aria-hidden="true" />
@@ -20,7 +22,7 @@ export function VisitSection() {
               <div className="handwritten-l">Visit Parippally’s favorite</div>
             </div>
             <h2 id="visit-heading" className="h2 heading-h2 align-center">
-              Sweet stops &amp; late hangouts
+              <SplitWords text="Sweet stops & late hangouts" />
             </h2>
             <img
               src={ASSETS.sparklesAccent}

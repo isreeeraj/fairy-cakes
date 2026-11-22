@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { BakeryScheduleSection } from './components/BakeryScheduleSection';
 import { CakeLabSection } from './components/CakeLabSection';
 import { FeaturedMenuSection } from './components/FeaturedMenuSection';
@@ -12,9 +12,13 @@ import { PlaceSection } from './components/PlaceSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { Ticker } from './components/Ticker';
 import { VisitSection } from './components/VisitSection';
+import { useMelloAnimations } from './hooks/useMelloAnimations';
 
 export default function App() {
+  const rootRef = useRef<HTMLDivElement>(null);
   const [selectedFlavorId, setSelectedFlavorId] = useState<string | null>(null);
+
+  useMelloAnimations(rootRef);
 
   const handleScrollToSection = useCallback((hash: string) => {
     const id = hash.replace(/^#/, '');
@@ -38,7 +42,7 @@ export default function App() {
   );
 
   return (
-    <div id="top">
+    <div id="top" ref={rootRef}>
       <Header
         onScrollToSection={handleScrollToSection}
         onScrollTop={handleScrollTop}
