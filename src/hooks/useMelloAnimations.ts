@@ -27,16 +27,10 @@ export function useMelloAnimations(rootRef: React.RefObject<HTMLElement | null>)
         const headerTl = gsap.timeline();
         headerTl
           .fromTo(
-            '.header .info-bar',
-            { yPercent: -100 },
-            { yPercent: 0, duration: 0.3, ease: 'power2.out' },
-            0.1
-          )
-          .fromTo(
             '.header .logo',
             { opacity: 0, scale: 0 },
             { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' },
-            0.2
+            0.1
           )
           .fromTo(
             '.header .menu-link',
@@ -49,7 +43,7 @@ export function useMelloAnimations(rootRef: React.RefObject<HTMLElement | null>)
               stagger: 0.03,
               ease: 'power2.out',
             },
-            0.3
+            0.2
           );
 
         // ============================================================
@@ -189,21 +183,8 @@ export function useMelloAnimations(rootRef: React.RefObject<HTMLElement | null>)
         // #30: footer-logo-illu (20deg <-> 40deg)
         createStopMotionWiggle('.illustration.footer-logo-illu', 20, 40);
 
-        // ============================================================
-        // 4. VERTICAL MOOD LABEL ATTENTION SHAKE (Mello #35 / #41)
-        // ============================================================
-        const verticalLabel = root.querySelector('.body-m.align-center.vertical');
-        if (verticalLabel) {
-          const base =
-            window.innerWidth > 991 ? 180 : window.innerWidth > 767 ? -45 : 0;
-          const shakeTl = gsap.timeline({ repeat: -1 });
-          shakeTl
-            .to(verticalLabel, { rotation: base + 10, duration: 0.1, ease: 'none' }, 3.0)
-            .to(verticalLabel, { rotation: base - 10, duration: 0.1, ease: 'none' }, 3.1)
-            .to(verticalLabel, { rotation: base + 10, duration: 0.1, ease: 'none' }, 3.2)
-            .to(verticalLabel, { rotation: base - 10, duration: 0.1, ease: 'none' }, 3.3)
-            .to(verticalLabel, { rotation: base, duration: 0.1, ease: 'none' }, 3.4);
-        }
+        // Section 4 (craving prompt attention shake) is registered on top-level
+        // gsap.matchMedia below so breakpoint switches clean up cleanly.
 
         // ============================================================
         // 5. FEATURED MENU SECTION SCROLL REVEAL (Mello #31: t-63fd14a5)
@@ -465,9 +446,9 @@ export function useMelloAnimations(rootRef: React.RefObject<HTMLElement | null>)
               0.35
             )
             .fromTo(
-              moodSec.querySelectorAll('.body-m.align-center.vertical'),
-              { opacity: 0, x: 32 },
-              { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' },
+              moodSec.querySelectorAll('.craving-prompt-inner'),
+              { opacity: 0, y: 14 },
+              { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' },
               0.48
             )
             .fromTo(
@@ -911,6 +892,33 @@ export function useMelloAnimations(rootRef: React.RefObject<HTMLElement | null>)
 
       return () => ctx.revert();
     });
+
+    // ============================================================
+    // 4. CRAVING PROMPT RESPONSIVE ATTENTION SHAKE (Mello #35 / #41)
+    // Animates inner span relative to 0deg so CSS breakpoints retain
+    // full control of vertical / angled / horizontal orientation.
+    // ============================================================
+    mm.add(
+      {
+        isDesktop: '(min-width: 992px) and (prefers-reduced-motion: no-preference)',
+        isTablet:
+          '(min-width: 768px) and (max-width: 991px) and (prefers-reduced-motion: no-preference)',
+        isMobile: '(max-width: 767px) and (prefers-reduced-motion: no-preference)',
+      },
+      (context) => {
+        const cravingPromptInner = root.querySelector('.craving-prompt-inner');
+        if (!cravingPromptInner) return;
+        const { isDesktop, isTablet } = context.conditions ?? {};
+        const amp = isDesktop ? 6 : isTablet ? 4 : 2.5;
+        const shakeTl = gsap.timeline({ repeat: -1 });
+        shakeTl
+          .to(cravingPromptInner, { rotation: amp, duration: 0.1, ease: 'none' }, 3.0)
+          .to(cravingPromptInner, { rotation: -amp, duration: 0.1, ease: 'none' }, 3.1)
+          .to(cravingPromptInner, { rotation: amp, duration: 0.1, ease: 'none' }, 3.2)
+          .to(cravingPromptInner, { rotation: -amp, duration: 0.1, ease: 'none' }, 3.3)
+          .to(cravingPromptInner, { rotation: 0, duration: 0.1, ease: 'none' }, 3.4);
+      }
+    );
 
     return () => mm.revert();
   }, [rootRef]);

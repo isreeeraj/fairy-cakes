@@ -100,7 +100,7 @@ export function HeroSection({ onScrollToSection }: HeroSectionProps) {
                 src={ASSETS.heroSpanishDelight}
                 alt="Handcrafted Spanish Delight celebration cake with caramel praline crunch, chocolate drip, and roasted hazelnuts on a ceramic stand."
                 loading="eager"
-                fallbackColor="#d5dcc6"
+                fallbackColor="#e8dcc6"
                 className="image hero-image"
               />
             </div>

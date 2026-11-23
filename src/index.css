@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --white: #e9ebdf;
-  --black: #284010;
-  --accent: #78bf30;
-  --ink-80: #284010cc;
-  --ink-10: #2840101a;
-  --cream-60: #e9ebdf99;
-  --cream-20: #e9ebdf33;
-  --cream-10: #e9ebdf1a;
+  --white: #f3ead8;
+  --black: #161413;
+  --accent: #c61d19;
+  --ink-80: #161413cc;
+  --ink-10: #1614131a;
+  --cream-60: #f3ead899;
+  --cream-20: #f3ead833;
+  --cream-10: #f3ead81a;
+  --filter-cream: brightness(0) saturate(100%) invert(94%) sepia(14%) saturate(372%) hue-rotate(351deg) brightness(99%) contrast(91%);
 
   --font-sans: "Inter", sans-serif;
   --font-display: "Londrina Solid", sans-serif;
@@ -367,8 +368,15 @@
 
 .body-m.align-center.vertical {
   writing-mode: vertical-rl;
-  height: 144px;
+  flex-shrink: 0;
+  height: auto;
+  max-height: 168px;
   transform: rotate(180deg);
+}
+
+.craving-prompt-inner {
+  display: inline-block;
+  transform-origin: center center;
 }
 
 .body-m.opacity {
@@ -446,6 +454,7 @@
   top: 0;
   left: 0;
   right: 0;
+  padding-top: 24px;
   z-index: 30;
 }
 
@@ -519,6 +528,12 @@
   position: relative;
   display: inline-flex;
   color: var(--black);
+  transition: color 0.3s ease;
+}
+
+.menu-link:hover,
+.menu-link:focus-visible {
+  color: var(--white);
 }
 
 .link-background {
@@ -585,7 +600,7 @@
 .button {
   border-radius: var(--radius-md);
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -594,6 +609,11 @@
   display: inline-flex;
   overflow: hidden;
   transition: color 0.3s ease;
+}
+
+.button:not(.variant-white-primary):not(.variant-black-secondary):not(.variant-white-secondary):hover .top-index,
+.button:not(.variant-white-primary):not(.variant-black-secondary):not(.variant-white-secondary):focus-visible .top-index {
+  color: var(--black);
 }
 
 .button.variant-black-secondary {
@@ -668,7 +688,7 @@
   align-items: center;
   height: auto;
   min-height: min(100vh, 840px);
-  padding-top: 188px;
+  padding-top: 152px;
   padding-bottom: 0;
   display: flex;
   overflow: hidden;
@@ -735,9 +755,9 @@
   border-radius: 50%;
   background: radial-gradient(
     ellipse at 50% 54%,
-    rgba(213, 220, 198, 0.36) 0%,
-    rgba(120, 191, 48, 0.08) 38%,
-    rgba(233, 235, 223, 0) 72%
+    rgba(243, 234, 216, 0.45) 0%,
+    rgba(198, 29, 25, 0.06) 38%,
+    rgba(243, 234, 216, 0) 72%
   );
   pointer-events: none;
   z-index: 0;
@@ -931,6 +951,7 @@
 .illustration.ticker-illu {
   aspect-ratio: 1;
   width: 20px;
+  filter: var(--filter-cream);
 }
 
 .illustration.featured-block-illu {
@@ -1118,7 +1139,7 @@
 /* Ticker */
 .ticker {
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   padding-top: 24px;
   padding-bottom: 24px;
   overflow: hidden;
@@ -1349,7 +1370,7 @@
 
 .badge {
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   border-radius: 48px;
   justify-content: center;
   align-items: center;
@@ -1376,11 +1397,20 @@
   border: 3px solid var(--black);
   border-radius: var(--radius-lg);
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   flex-direction: column;
   justify-content: space-between;
   padding: 28px;
   display: flex;
+}
+
+.illustration-featured-menu-block:not(.variant-black) .divider {
+  background-color: var(--white);
+}
+
+.illustration-featured-menu-block:not(.variant-black) .volume {
+  background-color: var(--cream-20);
+  color: var(--white);
 }
 
 .illustration-featured-menu-block.variant-black {
@@ -1577,7 +1607,7 @@
 
 .wheel-block.is-active {
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
 }
 
 .wheel-text {
@@ -1612,6 +1642,10 @@
   display: flex;
   position: relative;
   z-index: 2;
+}
+
+.wheel-circle .illustration.wheel-center-illu {
+  filter: var(--filter-cream);
 }
 
 .prod-block-wrapper {
@@ -1776,7 +1810,11 @@
 
 .time-tab.is-active {
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
+}
+
+.time-tab.is-active .illustration.time-tab-illu {
+  filter: var(--filter-cream);
 }
 
 .time-name {
@@ -1946,6 +1984,7 @@
   border: 3px solid var(--black);
   border-radius: var(--radius-lg);
   background-color: var(--accent);
+  color: var(--white);
   grid-template-columns: repeat(6, minmax(1px, 1fr));
   display: grid;
   overflow: hidden;
@@ -1977,6 +2016,15 @@
   flex: 1;
   padding: 28px;
   display: flex;
+  color: var(--white);
+}
+
+.spot-details .handwritten-s.opacity {
+  color: rgba(243, 234, 216, 0.82);
+}
+
+.spot-details .illustration.spot-illu {
+  filter: var(--filter-cream);
 }
 
 .illustration-text {
@@ -2010,8 +2058,8 @@
 
 .spot-tab {
   gap: 12px;
-  border-top: 3px solid var(--ink-10);
-  color: var(--ink-80);
+  border-top: 3px solid var(--cream-20);
+  color: rgba(243, 234, 216, 0.82);
   background-color: transparent;
   justify-content: flex-start;
   align-items: center;
@@ -2023,7 +2071,7 @@
 }
 
 .spot-tab:hover {
-  color: var(--black);
+  color: var(--white);
 }
 
 .spot-tab.is-active {
@@ -2073,7 +2121,7 @@
 
 .hotspot.is-active {
   padding: 6px;
-  background-color: rgba(233, 235, 223, 0.45);
+  background-color: rgba(243, 234, 216, 0.45);
 }
 
 .hotspot-content {
@@ -2088,11 +2136,12 @@
   width: 48px;
   padding: 8px;
   display: flex;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .hotspot.is-active .hotspot-content {
   background-color: var(--accent);
+  color: var(--white);
 }
 
 /* Testimonials Slider */
@@ -2282,7 +2331,7 @@
   border: 3px solid var(--accent);
   border-radius: var(--radius-lg);
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
@@ -2291,9 +2340,13 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.location-block .illustration.location-block-illu.default {
+  filter: var(--filter-cream);
+}
+
 .location-block:hover {
   background-color: var(--black);
-  color: var(--accent);
+  color: var(--white);
 }
 
 .location-block:hover .illustration.location-block-illu.default {
@@ -2317,7 +2370,7 @@
   border: 3px solid var(--accent);
   border-radius: var(--radius-lg);
   background-color: var(--accent);
-  color: var(--black);
+  color: var(--white);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -2328,9 +2381,13 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.email-block .illustration.email-block-illu.default {
+  filter: var(--filter-cream);
+}
+
 .email-block:hover {
   background-color: var(--black);
-  color: var(--accent);
+  color: var(--white);
 }
 
 .email-block:hover .illustration.email-block-illu.default {
@@ -2652,7 +2709,7 @@
 
   .hero {
     min-height: auto;
-    padding-top: 216px;
+    padding-top: 168px;
   }
 
   .hero-content {
@@ -2744,12 +2801,13 @@
   .body-m.align-center.vertical {
     z-index: 1;
     writing-mode: horizontal-tb;
-    width: 144px;
+    width: 156px;
     height: auto;
+    max-height: none;
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 0;
-    transform: rotate(-45deg);
+    transform: rotate(-38deg);
   }
 
   .product-block-wrapper {
@@ -2935,7 +2993,7 @@
   .hero {
     min-height: auto;
     max-height: none;
-    padding-top: 210px;
+    padding-top: 160px;
     padding-bottom: 12px;
   }
 
@@ -3038,8 +3096,12 @@
 
   .body-m.align-center.vertical {
     position: static;
+    writing-mode: horizontal-tb;
     transform: none;
     width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
   }
 
   .wheel-block.top-left { padding-bottom: 36px; padding-right: 12px; }
@@ -3209,6 +3271,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 .cakelab-step {
@@ -3219,6 +3282,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
 .cakelab-step-header {
@@ -3244,6 +3308,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
+  min-width: 0;
 }
 
 .cakelab-options-grid {
@@ -3292,7 +3357,11 @@
 .cakelab-option.is-active {
   background-color: var(--accent);
   border-color: var(--black);
-  color: var(--black);
+  color: var(--white);
+}
+
+.cakelab-option.is-active .opacity {
+  color: rgba(243, 234, 216, 0.85);
 }
 
 .cakelab-dietary-toggle {
@@ -3327,22 +3396,35 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  min-width: 0;
 }
 
 .cakelab-field {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .cakelab-input {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
   border: 3px solid var(--black);
   border-radius: var(--radius-sm);
   background-color: var(--white);
   color: var(--black);
   padding: 12px 14px;
   font-family: var(--font-sans);
+}
+
+input[type="date"].cakelab-input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 48px;
 }
 
 .cakelab-input:focus-visible {
@@ -3418,7 +3500,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  color: var(--accent);
+  color: var(--white);
 }
 
 .cakelab-divider {
@@ -3447,7 +3529,8 @@
 }
 
 .cakelab-total-row .handwritten-s {
-  color: var(--accent);
+  color: var(--white);
+  opacity: 0.85;
 }
 
 .cakelab-summary-cta {

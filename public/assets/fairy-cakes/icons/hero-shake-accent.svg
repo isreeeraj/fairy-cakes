@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156" fill="none">
   <!-- Bent straw -->
-  <path d="M84 52L94 18l22-5" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M84 52L94 18l22-5" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Cherry on whipped cream -->
-  <circle cx="71" cy="30" r="8.5" stroke="#78BF30" stroke-width="4.6"/>
-  <path d="M72 21c2-6 7-9 12-8" stroke="#78BF30" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="71" cy="30" r="8.5" stroke="#C61D19" stroke-width="4.6"/>
+  <path d="M72 21c2-6 7-9 12-8" stroke="#C61D19" stroke-width="4" stroke-linecap="round"/>
   <!-- Whipped cream dome -->
-  <path d="M44 64c0-13 11-24 27-24 14 0 26 9 29 21 6 1 11 5 11 11H38c0-5 2.5-8 6-8Z" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 64c0-13 11-24 27-24 14 0 26 9 29 21 6 1 11 5 11 11H38c0-5 2.5-8 6-8Z" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Cream swirl accent -->
-  <path d="M55 58c8-5 19-5 28 0" stroke="#78BF30" stroke-width="4" stroke-linecap="round"/>
+  <path d="M55 58c8-5 19-5 28 0" stroke="#C61D19" stroke-width="4" stroke-linecap="round"/>
   <!-- Ribbed milkshake glass body -->
-  <path d="M40 72h70l-10 62c-1 5-5 8-10 8H60c-5 0-9-3-10-8L40 72Z" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 72h70l-10 62c-1 5-5 8-10 8H60c-5 0-9-3-10-8L40 72Z" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Chocolate drizzle wave inside glass -->
-  <path d="M44 88c8 5 15 5 22 0 7 5 15 5 22 0 6 4 12 4 17 0" stroke="#78BF30" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 88c8 5 15 5 22 0 7 5 15 5 22 0 6 4 12 4 17 0" stroke="#C61D19" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Subtle glass vertical ribs -->
-  <path d="M62 104l2 26M75 104v26M88 104l-2 26" stroke="#78BF30" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M62 104l2 26M75 104v26M88 104l-2 26" stroke="#C61D19" stroke-width="3.6" stroke-linecap="round"/>
   <!-- Sparkle & chill accents -->
-  <path d="M126 58l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#78BF30"/>
-  <path d="M24 94c-4 6-4 14 0 20M18 100c-2 4-2 8 0 12" stroke="#78BF30" stroke-width="4" stroke-linecap="round"/>
+  <path d="M126 58l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#C61D19"/>
+  <path d="M24 94c-4 6-4 14 0 20M18 100c-2 4-2 8 0 12" stroke="#C61D19" stroke-width="4" stroke-linecap="round"/>
 </svg>

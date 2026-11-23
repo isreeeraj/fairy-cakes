@@ -13,7 +13,7 @@ export function ResilientImage({
   alt,
   className = '',
   loading = 'lazy',
-  fallbackColor = '#284010',
+  fallbackColor = '#161413',
 }: ResilientImageProps) {
   const [failed, setFailed] = useState(false);
 

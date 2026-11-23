@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" fill="none">
   <!-- Candle flame -->
-  <path d="M72 14c5 6 7 11 4.5 15.5-2 3.5-7 3.5-9 0C65 25 67 20 72 14Z" stroke="#78BF30" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M72 14c5 6 7 11 4.5 15.5-2 3.5-7 3.5-9 0C65 25 67 20 72 14Z" stroke="#C61D19" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Candle stick -->
-  <path d="M72 34v16" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round"/>
+  <path d="M72 34v16" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round"/>
   <!-- Top tier -->
-  <path d="M44 54c0-3.5 3-6 7-6h42c4 0 7 2.5 7 6v26H44V54Z" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 54c0-3.5 3-6 7-6h42c4 0 7 2.5 7 6v26H44V54Z" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Top tier frosting drip -->
-  <path d="M44 63c6 5 11 5 16 0 5 5 10 5 15 0 5 5 10 5 15 0 4 4 7 4 10 1" stroke="#78BF30" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 63c6 5 11 5 16 0 5 5 10 5 15 0 5 5 10 5 15 0 4 4 7 4 10 1" stroke="#C61D19" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Bottom tier -->
-  <path d="M26 86c0-3.5 3-6 7-6h78c4 0 7 2.5 7 6v32c0 3-2.5 5-6 5H32c-3.5 0-6-2-6-5V86Z" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 86c0-3.5 3-6 7-6h78c4 0 7 2.5 7 6v32c0 3-2.5 5-6 5H32c-3.5 0-6-2-6-5V86Z" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Bottom tier frosting drip -->
-  <path d="M26 96c8 6 14 6 21 0 7 6 14 6 21 0 7 6 14 6 21 0 8 6 16 6 29 0" stroke="#78BF30" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 96c8 6 14 6 21 0 7 6 14 6 21 0 7 6 14 6 21 0 8 6 16 6 29 0" stroke="#C61D19" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Cake plate base -->
-  <path d="M16 125h112" stroke="#78BF30" stroke-width="4.8" stroke-linecap="round"/>
+  <path d="M16 125h112" stroke="#C61D19" stroke-width="4.8" stroke-linecap="round"/>
   <!-- Festive sprinkles / sparkles -->
-  <circle cx="38" cy="112" r="2.6" fill="#78BF30"/>
-  <circle cx="58" cy="114" r="2.6" fill="#78BF30"/>
-  <circle cx="82" cy="112" r="2.6" fill="#78BF30"/>
-  <circle cx="102" cy="114" r="2.6" fill="#78BF30"/>
-  <path d="M30 34l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#78BF30"/>
-  <path d="M114 40l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" fill="#78BF30"/>
+  <circle cx="38" cy="112" r="2.6" fill="#C61D19"/>
+  <circle cx="58" cy="114" r="2.6" fill="#C61D19"/>
+  <circle cx="82" cy="112" r="2.6" fill="#C61D19"/>
+  <circle cx="102" cy="114" r="2.6" fill="#C61D19"/>
+  <path d="M30 34l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#C61D19"/>
+  <path d="M114 40l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" fill="#C61D19"/>
 </svg>

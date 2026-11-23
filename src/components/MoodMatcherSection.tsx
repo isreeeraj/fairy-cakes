@@ -98,7 +98,9 @@ export function MoodMatcherSection() {
           <div className="wheel-product">
             <div className="text-and-wheel">
               <div className="body-m align-center vertical">
-                Pick a craving. We&apos;ll bake the rest.
+                <span className="craving-prompt-inner">
+                  Pick a craving. We&apos;ll bake the rest.
+                </span>
               </div>
 
               <div className="wheel" role="group" aria-label="Craving selector wheel">
